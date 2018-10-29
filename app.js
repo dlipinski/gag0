@@ -37,10 +37,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 // Routing
-const routes = require('./routes/indexRoutes')(passport);
-const post_routes = require('./routes/postRoutes')(passport);
-app.use('/', routes);
-app.use('/', post_routes);
+const indexRoutes = require('./routes/indexRoutes')(passport);
+const loginRoutes = require('./routes/loginRoutes')(passport);
+const postRoutes = require('./routes/postRoutes')(passport);
+app.use('/', indexRoutes);
+app.use('/', loginRoutes);
+app.use('/', postRoutes);
 
 // HTTP server for app
 const server = require('http').createServer(app);
