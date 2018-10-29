@@ -2,7 +2,7 @@
   "name": "gag0",
   "version": "1.0.0",
   "description": "9gag like engine",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/dlipinski/gag0/issues"
   },
-  "homepage": "https://github.com/dlipinski/gag0#readme"
+  "homepage": "https://github.com/dlipinski/gag0#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.3.7",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "save": "^2.3.2"
+  }
 }
