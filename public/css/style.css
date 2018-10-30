@@ -1,0 +1,4 @@
+.myCenter {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+}
