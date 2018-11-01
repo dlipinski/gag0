@@ -1,5 +1,5 @@
 /*jshint node: true, esversion: 6, devel: true */
-const Auction = require('./user.js');
+const Auction = require('./userModel.js');
 const mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 const PostSchema = mongoose.Schema({
@@ -8,5 +8,8 @@ const PostSchema = mongoose.Schema({
     moder: { type: Number, ref: 'User' },
     title: String,
     photoName: String,
+    accepted: Boolean,
     created: { type: Date, default: Date.now }
-})
+});
+
+module.exports = mongoose.model('Post', PostSchema);

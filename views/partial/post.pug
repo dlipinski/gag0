@@ -2,14 +2,11 @@ mixin create-post(val)
     .card.mb-3.myCenter(style='max-width:30rem')
         .card-header 
             strong Title nr #{val}
-        img.img-fluid.card-img(src="https://i1.kwejk.pl/k/obrazki/2018/10/KJyoNGrv6DUofSpU.jpg",alt="Card image cap")      
+        img.card-img.img-fluid(src="https://i1.kwejk.pl/k/obrazki/2018/10/KJyoNGrv6DUofSpU.jpg",alt="Card image cap")      
         .card-footer.text-muted 
             .row
-                .col    2 days ago
-                .col(style='text-align:right')
-                    .row
-                        .col5
-                            p Comments (9)
-                        .col
-                            button.btn.btn-outline-success.btn-sm +
-        
+                .col
+                    p Comments (9)
+                .col.text-right
+                    button.btn.btn-outline-success.btn-sm &nbsp;+&nbsp;
+                

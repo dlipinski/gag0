@@ -1,0 +1,37 @@
+doctype html  
+html(lang='en')  
+    head
+        title index
+        include ../partial/head.pug
+    body
+        include ../partial/header.pug
+        
+        .container(role='main')
+            .mb-3
+            .card.myCenter(style='max-width:30rem')
+                .card-header.text-center
+                    strong Sign up
+                .card-body
+                    form(id='signUp', action='', method='POST', enctype="multipart/form-data")
+                        .form-group
+                            input.form-control.form-control-lg(id='username', name='title', placeholder='Username')
+                        .form-group
+                            input.form-control.form-control-lg(id='email', name='title', placeholder='Email')    
+                            small.form-text.text-muted Other users will not see your email
+                        .form-group
+                            input.form-control.form-control-lg(id='password', name='password', placeholder='Password', type='password', aria-describedby="passwordHelpBlock")
+                            small.form-text.text-muted Password should be at least 5 characters long and contains 1 big character and 1 number
+                        .form-group
+                            input.form-control.form-control-lg(id='confirmPassword', name='confirmPassword', placeholder='Confirm password', type='password')
+                        .form-group
+                            .form-check
+                                input.form-check-input(id='agreement', type='checkbox', value='')
+                                label.form-check-label Agree to&nbsp;
+                                    a(href='#') terms and conditions
+                                    
+                        button.btn.btn-primary.btn-lg.btn-block.mb-3.disabled Create
+            .mb-3
+                            
+            
+        script(src='js/signUpScript.js')
+        include ../partial/foot.pug

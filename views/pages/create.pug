@@ -1,0 +1,31 @@
+- if (values) {console.log(values);}
+doctype html  
+html(lang='en')  
+    head
+        title index
+        include ../partial/head.pug
+    body
+        include ../partial/header.pug
+        
+        .container(role='main')
+            .mb-3
+            .card.myCenter(style='max-width:30rem')
+                .card-header.text-center
+                    strong Create post
+                .card-body
+                    form(id='createForm', action='/create', method='POST', enctype="multipart/form-data")
+                        .form-group
+                            input.form-control.form-control-lg(id='title', name='title', placeholder='Title')
+                        .form-group
+                            .custom-file
+                                input.custom-file-input(id='image', name='image', type='file', accept='image/png, image/jpeg')
+                                label.custom-file-label(id='imageName') Choose file
+                        .form-group
+                            img.img-fluid.w-100(id='imagePreview',src="")
+                        .form-group
+                        button.btn.btn-primary.btn-lg.btn-block.mb-3.disabled Create
+            .mb-3
+                            
+            
+        script(src='js/signUpScript.js')
+        include ../partial/foot.pug

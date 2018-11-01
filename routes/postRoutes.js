@@ -3,43 +3,20 @@ const router = express.Router();
 
 module.exports = function(passport){
 
-    /* GET Login Page */
-    router.get('/login', function(req, res) {
-		if (req.user) {res.redirect('/');}
-    	// Display the Login page with any flash message, if any
-		res.render('pages/login', { message: req.flash('message') });
+    /* GET Create Page */
+    router.get('/create', (req, res) => {
+		res.render('pages/create');
     });
-    
-	/* Handle Login POST */
-	router.post('/login', passport.authenticate('login', {
-		successRedirect: '/',
-		failureRedirect: 'login',
-		failureFlash : true  
-	}));
+	router.post('/create', (req, res) => {
+		let title = req.body.title;
+		let image = req.body.image;
+		let validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+		if(title.length < 5 || title.length > 80 || !image || image.size>100000 || validImageTypes.indexOf(file.type) === -1) {
+			res.render('pages/create', {values: {title, image}});
+		} else {
 
-	/* GET Registration Page */
-	router.get('/signup', function(req, res){
-		res.render('pages/register',{message: req.flash('message')});
+		}
 	});
-
-	/* Handle Registration POST */
-	router.post('/signup', passport.authenticate('signup', {
-		successRedirect: '/account',
-		failureRedirect: '/signup',
-		failureFlash : true  
-	}));
-
-	/* GET Home Page */
-	router.get('/account', isAuthenticated, function(req, res){
-		res.render('pages/account', { user: req.user });
-	});
-
-	/* Handle Logout */
-	router.get('/signout', isAuthenticated, function(req, res) {
-		req.logout();
-		res.redirect('/');
-	});
-	
 	return router;
 }
 

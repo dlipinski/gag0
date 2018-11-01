@@ -9,37 +9,10 @@ module.exports = function(passport){
     	// Display the Login page with any flash message, if any
 		res.render('pages/login', { message: req.flash('message') });
     });
-    
-	/* Handle Login POST */
-	router.post('/login', passport.authenticate('login', {
-		successRedirect: '/',
-		failureRedirect: 'login',
-		failureFlash : true  
-	}));
-
-	/* GET Registration Page */
-	router.get('/signup', function(req, res){
-		res.render('pages/register',{message: req.flash('message')});
+	router.get('/signup', (req, res) => {
+		if (req.user) {res.redirect('/');}
+		res.render('pages/signup');
 	});
-
-	/* Handle Registration POST */
-	router.post('/signup', passport.authenticate('signup', {
-		successRedirect: '/account',
-		failureRedirect: '/signup',
-		failureFlash : true  
-	}));
-
-	/* GET Home Page */
-	router.get('/account', isAuthenticated, function(req, res){
-		res.render('pages/account', { user: req.user });
-	});
-
-	/* Handle Logout */
-	router.get('/signout', isAuthenticated, function(req, res) {
-		req.logout();
-		res.redirect('/');
-	});
-	
 	return router;
 }
 

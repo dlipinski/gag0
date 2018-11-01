@@ -1,5 +1,5 @@
 /*jshint node: true, esversion: 6, devel: true */
-const Auction = require('./post.js');
+const Auction = require('./postModel.js');
 const mongoose = require('mongoose'), Schema = mongoose.Schema;
  
 const UserSchema = mongoose.Schema({
